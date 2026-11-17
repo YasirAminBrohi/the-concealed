@@ -1,6 +1,6 @@
 {
   "$schema": "https://developers.reddit.com/schema/config-file.v1.json",
-  "name": "the-unseen",
+  "name": "the-concealed",
   "post": {
     "dir": "dist/client",
     "entrypoints": {
@@ -83,5 +83,8 @@
   "scripts": {
     "dev": "vite build --watch",
     "build": "vite build"
+  },
+  "dev": {
+    "subreddit": "the_concealed_dev"
   }
 }

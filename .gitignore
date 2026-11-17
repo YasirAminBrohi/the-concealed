@@ -1,4 +1,55 @@
-node_modules
-.DS_Store
-dist
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build artifacts & outputs
+dist/
+dist-ssr/
+build/
+out/
+*.tsbuildinfo
+
+# Environment & local secrets
 .env
+.env.local
+.env.*.local
+*.local
+
+# Devvit CLI & runtime caches
+.devvit/
+devvit.local.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Test coverage & reports
+coverage/
+*.lcov
+.nyc_output/
+
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDE & Editor caches (preserve shared settings like .vscode/settings.json)
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.bak
+*.tmp
