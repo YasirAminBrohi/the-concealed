@@ -1,0 +1,87 @@
+{
+  "$schema": "https://developers.reddit.com/schema/config-file.v1.json",
+  "name": "the-unseen",
+  "post": {
+    "dir": "dist/client",
+    "entrypoints": {
+      "default": {
+        "entry": "splash.html",
+        "height": "tall"
+      },
+      "game": {
+        "entry": "game.html"
+      }
+    }
+  },
+  "server": {
+    "dir": "dist/server",
+    "entry": "index.cjs"
+  },
+  "permissions": {
+    "http": {
+      "enable": true,
+      "domains": [
+        "generativelanguage.googleapis.com",
+        "api.openai.com"
+      ]
+    },
+    "redis": true,
+    "reddit": true,
+    "media": true
+  },
+  "scheduler": {
+    "tasks": {
+      "daily-publish": {
+        "cron": "5 0 * * *",
+        "endpoint": "/internal/scheduler/daily-publish"
+      }
+    }
+  },
+  "settings": {
+    "global": {
+      "AI_API_KEY": {
+        "type": "string",
+        "label": "AI API Key",
+        "helpText": "API key for external LLM evaluation (Google Gemini or OpenAI)",
+        "isSecret": true
+      },
+      "AI_PROVIDER": {
+        "type": "string",
+        "label": "AI Provider",
+        "helpText": "AI provider to use (gemini or openai)",
+        "defaultValue": "gemini"
+      },
+      "AI_MODEL": {
+        "type": "string",
+        "label": "AI Model",
+        "helpText": "Model identifier (e.g. gemini-1.5-flash)",
+        "defaultValue": "gemini-1.5-flash"
+      }
+    }
+  },
+  "menu": {
+    "items": [
+      {
+        "label": "Publish Today's Mystery (THE UNSEEN)",
+        "description": "Publish the daily case interactive post",
+        "location": "subreddit",
+        "forUserType": "moderator",
+        "endpoint": "/internal/menu/publish-daily"
+      },
+      {
+        "label": "Create THE UNSEEN Case Post",
+        "description": "Create an interactive investigation post",
+        "location": "subreddit",
+        "forUserType": "moderator",
+        "endpoint": "/internal/menu/post-create"
+      }
+    ]
+  },
+  "triggers": {
+    "onAppInstall": "/internal/triggers/on-app-install"
+  },
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build"
+  }
+}

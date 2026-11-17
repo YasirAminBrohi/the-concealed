@@ -1,0 +1,80 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-unseen-bg: #101114;
+  --color-unseen-surface: #1a1c20;
+  --color-unseen-card: #25272b;
+  --color-unseen-border: #33363d;
+  --color-unseen-amber: #d5a45b;
+  --color-unseen-amber-hover: #b88942;
+  --color-unseen-text: #f2efe8;
+  --color-unseen-muted: #9c9b98;
+  --color-unseen-red: #a94e4e;
+  --color-unseen-green: #78a88f;
+  --font-serif: 'Georgia', 'Cambria', 'Times New Roman', serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SF Mono', 'Courier New', monospace;
+}
+
+body {
+  background-color: #101114;
+  color: #f2efe8;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbars for dark detective aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #101114;
+}
+::-webkit-scrollbar-thumb {
+  background: #33363d;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d5a45b;
+}
+
+/* Animations for detective UI transitions */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-amber {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(213, 164, 91, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(213, 164, 91, 0); }
+}
+
+@utility animate-fade-in {
+  animation: fadeIn 0.3s ease-out both;
+}
+
+@utility animate-scale-up {
+  animation: scaleUp 0.25s ease-out both;
+}
+
+@utility animate-slide-up {
+  animation: slideUp 0.35s ease-out both;
+}
+
+@utility animate-pulse-amber {
+  animation: pulse-amber 2s ease-in-out infinite;
+}
